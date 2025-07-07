@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>For My Ali ❤️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap');
+        
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fff5f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 15px;
+            text-align: center;
+            color: #d23669;
+            overflow-x: hidden;
+            touch-action: manipulation;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 100%;
+            position: relative;
+            padding: 10px;
+        }
+        
+        .poem {
+            background-color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 3px 10px rgba(210, 54, 105, 0.1);
+            margin-bottom: 15px;
+            line-height: 1.6;
+            font-size: 1rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s forwards 0.5s;
+        }
+        
+        .love-note {
+            margin: 25px 0;
+            font-size: 1.1rem;
+            font-weight: bold;
+            font-family: 'Dancing Script', cursive;
+            opacity: 0;
+            transform: scale(0.8);
+            animation: fadeInScale 0.8s forwards 1.2s;
+            line-height: 1.5;
+        }
+        
+        button {
+            background-color: #d23669;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 15px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 8px rgba(210, 54, 105, 0.3);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeIn 0.8s forwards 1.8s;
+            min-width: 160px;
+            touch-action: manipulation;
+        }
+        
+        button:active {
+            background-color: #a51c4a;
+            transform: translateY(1px) scale(0.98);
+        }
+        
+        .image-gallery {
+            display: none;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            opacity: 0;
+            transform: translateY(15px);
+            padding-bottom: 20px;
+        }
+        
+        .image-box {
+            width: calc(50% - 10px);
+            max-width: 180px;
+            height: 180px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transform: scale(0.9);
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+        
+        .image-box:nth-child(1) { animation: fadeInScale 0.7s forwards 0.3s; }
+        .image-box:nth-child(2) { animation: fadeInScale 0.7s forwards 0.5s; }
+        .image-box:nth-child(3) { animation: fadeInScale 0.7s forwards 0.7s; }
+        
+        .image-box:active {
+            transform: scale(0.95);
+        }
+        
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .image-box:hover img {
+            transform: scale(1.1);
+        }
+        
+        h1 {
+            color: #d23669;
+            margin: 15px 0 25px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            opacity: 0;
+            animation: fadeInDown 0.8s forwards 0.2s;
+            line-height: 1.3;
+        }
+        
+        .space {
+            height: 30px;
+        }
+
+        /* Lyrics styling */
+        .lyrics {
+            background-color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 3px 10px rgba(210, 54, 105, 0.1);
+            margin: 20px auto;
+            max-width: 500px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s forwards 1s;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(210, 54, 105, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(210, 54, 105, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(210, 54, 105, 0); }
+        }
+        
+        /* Screen transitions */
+        .screen {
+            display: none;
+            animation: fadeIn 0.6s forwards;
+            width: 100%;
+        }
+        
+        .active {
+            display: block;
+        }
+        
+        .back-button {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            z-index: 10;
+            touch-action: manipulation;
+        }
+        
+        .back-button:active {
+            transform: scale(0.9);
+        }
+        
+        .back-button::before {
+            content: '←';
+            font-size: 1.2rem;
+            color: #d23669;
+        }
+        
+        /* Floating hearts */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .heart {
+            position: absolute;
+            opacity: 0;
+            font-size: 20px;
+            color: #ff6b81;
+            animation: float linear infinite;
+        }
+        
+        /* Music player */
+        .music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+        
+        .music-control:active {
+            transform: scale(0.9);
+        }
+        
+        .music-control i {
+            color: #d23669;
+            font-size: 1.5rem;
+        }
+        
+        /* Button container */
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        /* Mobile-specific optimizations */
+        @media (max-width: 480px) {
+            .poem {
+                padding: 15px;
+                font-size: 0.95rem;
+            }
+            
+            .love-note {
+                font-size: 1rem;
+                margin: 20px 0;
+            }
+            
+            button {
+                padding: 10px 20px;
+                font-size: 0.95rem;
+                min-width: 140px;
+                margin: 10px 0;
+            }
+            
+            .image-box {
+                width: calc(50% - 7px);
+                height: 150px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+                margin: 10px 0 20px;
+            }
+            
+            .music-control {
+                bottom: 15px;
+                right: 15px;
+                width: 45px;
+                height: 45px;
+            }
+
+            .lyrics {
+                font-size: 1rem;
+                padding: 15px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="floating-hearts" id="floating-hearts"></div>
+    
+    <div class="music-control" id="music-control">
+        <i class="fas fa-music"></i>
+    </div>
+    
+    <div class="container">
+        <!-- First Screen -->
+        <div id="first-screen" class="screen active">
+            <div class="button-container">
+                <button onclick="showPoem()" id="main-btn">MY ALYSSA ❤️</button>
+
+            </div>
+        </div>
+        
+        <!-- Poem Screen -->
+        <div id="poem-screen" class="screen">
+            <div class="back-button" onclick="backToFirst()"></div>
+            <div class="poem">
+                <p>We went on one sweet date, just us,<br>
+                No rush, no games, no need to fuss.<br>
+                But from that night, my heart just knew<br>
+                I didn't want anyone but you.</p>
+                
+                <p>Since then, we're always side by side,<br>
+                Through laughs and talks and every ride.<br>
+                Each day with you feels warm and right<br>
+                You're my forever, day and night.</p>
+            </div>
+            
+            <div class="space"></div>
+            
+            <div class="love-note">
+                I love you my dearest, my love and my baby,<br>
+                I'm so grateful to have you!
+            </div>
+            
+            <button onclick="showGallery()" id="gallery-btn">CLICK THIS BABY!</button>
+        </div>
+        
+        <!-- Gallery Screen -->
+        <div id="gallery-screen" class="screen">
+            <div class="back-button" onclick="backToPoem()"></div>
+            <h1>i love you ❤️</h1>
+            <div class="image-gallery" id="image-gallery">
+                <div class="image-box">
+                    <img src="assets/picture 1.jpg" alt="Love picture 1">
+                </div>
+                <div class="image-box">
+                    <img src="assets/picture 2.jpg" alt="Love picture 2">
+                </div>
+                <div class="image-box">
+                    <img src="assets/picture 3.jpg" alt="Love picture 3">
+                </div>
+            </div>
+            
+            <!-- Added lyrics section -->
+            <div class="lyrics">
+                Di sasayangin ang oras at pag-ibig mo<br>
+                Mas pipiliin kong<br>
+                Ibigay lahat pati itong aking mundo<br>
+                Halika't sumayaw sa ilalim ng bituin<br>
+                Habang ako'y nakatingin sa iyo<br>
+                Wala na 'kong ibang mahihiling<br>
+                Saksi ang langit sa 'tin
+            </div>
+        </div>
+    </div>
+
+    <audio id="bg-music" loop>
+        <source src="assets/ALI.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // Navigation functions
+        function showPoem() {
+            document.getElementById('first-screen').classList.remove('active');
+            setTimeout(() => {
+                document.getElementById('poem-screen').classList.add('active');
+            }, 300);
+        }
+        
+        function showGallery() {
+            document.getElementById('poem-screen').classList.remove('active');
+            setTimeout(() => {
+                document.getElementById('gallery-screen').classList.add('active');
+                document.getElementById('image-gallery').style.display = 'flex';
+                setTimeout(() => {
+                    document.getElementById('image-gallery').style.opacity = '1';
+                    document.getElementById('image-gallery').style.transform = 'translateY(0)';
+                }, 50);
+            }, 300);
+            
+            // Trigger heartbeat animation on gallery button click
+            const galleryBtn = document.getElementById('gallery-btn');
+            galleryBtn.style.animation = 'heartbeat 0.8s';
+            setTimeout(() => {
+                galleryBtn.style.animation = '';
+            }, 800);
+        }
+        
+        function backToFirst() {
+            document.getElementById('poem-screen').classList.remove('active');
+            setTimeout(() => {
+                document.getElementById('first-screen').classList.add('active');
+            }, 300);
+        }
+        
+        function backToPoem() {
+            document.getElementById('gallery-screen').classList.remove('active');
+            setTimeout(() => {
+                document.getElementById('poem-screen').classList.add('active');
+            }, 300);
+        }
+        
+        // Floating hearts animation
+        function createHearts() {
+            const heartsContainer = document.getElementById('floating-hearts');
+            const heartCount = 15;
+            
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.innerHTML = '❤️';
+                heart.classList.add('heart');
+                
+                // Random position
+                const leftPos = Math.random() * 100;
+                const topPos = Math.random() * 100;
+                
+                // Random animation duration (10-20s)
+                const duration = 10 + Math.random() * 10;
+                
+                // Random delay (0-5s)
+                const delay = Math.random() * 5;
+                
+                // Random size
+                const size = 15 + Math.random() * 15;
+                
+                heart.style.left = `${leftPos}%`;
+                heart.style.top = `${topPos}%`;
+                heart.style.animation = `float ${duration}s linear ${delay}s infinite`;
+                heart.style.fontSize = `${size}px`;
+                heart.style.opacity = '0.7';
+                
+                heartsContainer.appendChild(heart);
+            }
+        }
+        
+        // Music control
+        const music = document.getElementById('bg-music');
+        const musicControl = document.getElementById('music-control');
+        let isMusicPlaying = false;
+        
+        musicControl.addEventListener('click', function() {
+            if (isMusicPlaying) {
+                music.pause();
+                musicControl.innerHTML = '<i class="fas fa-music"></i>';
+                musicControl.style.animation = '';
+            } else {
+                music.play();
+                musicControl.innerHTML = '<i class="fas fa-pause"></i>';
+                musicControl.style.animation = 'pulse 2s infinite';
+            }
+            isMusicPlaying = !isMusicPlaying;
+        });
+        
+        // Initialize animations
+        window.onload = function() {
+            createHearts();
+            
+            const mainBtn = document.getElementById('main-btn');
+            const secondBtn = document.getElementById('second-btn');
+            
+            if (mainBtn && secondBtn) {
+                // Pulse animation for both buttons
+                setInterval(() => {
+                    mainBtn.style.transform = 'scale(1.03)';
+                    secondBtn.style.transform = 'scale(1.03)';
+                    setTimeout(() => {
+                        mainBtn.style.transform = 'scale(1)';
+                        secondBtn.style.transform = 'scale(1)';
+                    }, 800);
+                }, 1600);
+                
+                // Add floating effect to buttons
+                mainBtn.style.animation = 'float 3s ease-in-out infinite';
+                secondBtn.style.animation = 'float 3s ease-in-out infinite 0.5s';
+            }
+            
+            // Add hover effect to gallery images
+            const imageBoxes = document.querySelectorAll('.image-box');
+            imageBoxes.forEach(box => {
+                box.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05)';
+                });
+                box.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+            
+            // Prevent zooming on double-tap
+            document.addEventListener('dblclick', function(e) {
+                e.preventDefault();
+            }, { passive: false });
+        };
+    </script>
+</body>
+</html>
