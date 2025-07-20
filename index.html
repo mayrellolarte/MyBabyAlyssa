@@ -1,543 +1,542 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>For My Ali ❤️</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap');
-        
-        * {
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #fff5f5;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 15px;
-            text-align: center;
-            color: #d23669;
-            overflow-x: hidden;
-            touch-action: manipulation;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 100%;
-            position: relative;
-            padding: 10px;
-        }
-        
-        .poem {
-            background-color: white;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 3px 10px rgba(210, 54, 105, 0.1);
-            margin-bottom: 15px;
-            line-height: 1.6;
-            font-size: 1rem;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s forwards 0.5s;
-        }
-        
-        .love-note {
-            margin: 25px 0;
-            font-size: 1.1rem;
-            font-weight: bold;
-            font-family: 'Dancing Script', cursive;
-            opacity: 0;
-            transform: scale(0.8);
-            animation: fadeInScale 0.8s forwards 1.2s;
-            line-height: 1.5;
-        }
-        
-        button {
-            background-color: #d23669;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            font-size: 1rem;
-            border-radius: 50px;
-            cursor: pointer;
-            margin: 15px 0;
-            transition: all 0.3s ease;
-            box-shadow: 0 3px 8px rgba(210, 54, 105, 0.3);
-            position: relative;
-            overflow: hidden;
-            opacity: 0;
-            animation: fadeIn 0.8s forwards 1.8s;
-            min-width: 160px;
-            touch-action: manipulation;
-        }
-        
-        button:active {
-            background-color: #a51c4a;
-            transform: translateY(1px) scale(0.98);
-        }
-        
-        .image-gallery {
-            display: none;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-            opacity: 0;
-            transform: translateY(15px);
-            padding-bottom: 20px;
-        }
-        
-        .image-box {
-            width: calc(50% - 10px);
-            max-width: 180px;
-            height: 180px;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            transform: scale(0.9);
-            opacity: 0;
-            transition: all 0.4s ease;
-        }
-        
-        .image-box:nth-child(1) { animation: fadeInScale 0.7s forwards 0.3s; }
-        .image-box:nth-child(2) { animation: fadeInScale 0.7s forwards 0.5s; }
-        .image-box:nth-child(3) { animation: fadeInScale 0.7s forwards 0.7s; }
-        
-        .image-box:active {
-            transform: scale(0.95);
-        }
-        
-        .image-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .image-box:hover img {
-            transform: scale(1.1);
-        }
-        
-        h1 {
-            color: #d23669;
-            margin: 15px 0 25px;
-            font-family: 'Dancing Script', cursive;
-            font-size: 2.2rem;
-            opacity: 0;
-            animation: fadeInDown 0.8s forwards 0.2s;
-            line-height: 1.3;
-        }
-        
-        .space {
-            height: 30px;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our 1st Monthsary</title>
+<style>
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+@keyframes subtlePulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+@keyframes heartBeat {
+    0% { transform: scale(1); }
+    14% { transform: scale(1.1); }
+    28% { transform: scale(1); }
+    42% { transform: scale(1.1); }
+    70% { transform: scale(1); }
+}
+@keyframes gentleSway {
+    0%, 100% { transform: rotate(-2deg); }
+    50% { transform: rotate(2deg); }
+}
+@keyframes textGlow {
+    0% { text-shadow: 0 0 5px rgba(216, 27, 96, 0.3); }
+    50% { text-shadow: 0 0 15px rgba(216, 27, 96, 0.6); }
+    100% { text-shadow: 0 0 5px rgba(216, 27, 96, 0.3); }
+}
+@keyframes ripple {
+    0% { transform: scale(0.8); opacity: 0.4; }
+    100% { transform: scale(1.4); opacity: 0; }
+}
 
-        /* Lyrics styling */
-        .lyrics {
-            background-color: white;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 3px 10px rgba(210, 54, 105, 0.1);
-            margin: 20px auto;
-            max-width: 500px;
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.2rem;
-            line-height: 1.8;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s forwards 1s;
-        }
-        
-        /* Animations */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        @keyframes fadeInScale {
-            from { opacity: 0; transform: scale(0.8); }
-            to { opacity: 1; transform: scale(1); }
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        @keyframes heartbeat {
-            0% { transform: scale(1); }
-            25% { transform: scale(1.1); }
-            50% { transform: scale(1); }
-            75% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-        
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(210, 54, 105, 0.4); }
-            70% { box-shadow: 0 0 0 15px rgba(210, 54, 105, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(210, 54, 105, 0); }
-        }
-        
-        /* Screen transitions */
-        .screen {
-            display: none;
-            animation: fadeIn 0.6s forwards;
-            width: 100%;
-        }
-        
-        .active {
-            display: block;
-        }
-        
-        .back-button {
-            position: fixed;
-            top: 15px;
-            left: 15px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            z-index: 10;
-            touch-action: manipulation;
-        }
-        
-        .back-button:active {
-            transform: scale(0.9);
-        }
-        
-        .back-button::before {
-            content: '←';
-            font-size: 1.2rem;
-            color: #d23669;
-        }
-        
-        /* Floating hearts */
-        .floating-hearts {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-        
-        .heart {
-            position: absolute;
-            opacity: 0;
-            font-size: 20px;
-            color: #ff6b81;
-            animation: float linear infinite;
-        }
-        
-        /* Music player */
-        .music-control {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-            z-index: 100;
-            transition: all 0.3s ease;
-        }
-        
-        .music-control:active {
-            transform: scale(0.9);
-        }
-        
-        .music-control i {
-            color: #d23669;
-            font-size: 1.5rem;
-        }
-        
-        /* Button container */
-        .button-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        /* Mobile-specific optimizations */
-        @media (max-width: 480px) {
-            .poem {
-                padding: 15px;
-                font-size: 0.95rem;
-            }
-            
-            .love-note {
-                font-size: 1rem;
-                margin: 20px 0;
-            }
-            
-            button {
-                padding: 10px 20px;
-                font-size: 0.95rem;
-                min-width: 140px;
-                margin: 10px 0;
-            }
-            
-            .image-box {
-                width: calc(50% - 7px);
-                height: 150px;
-            }
-            
-            h1 {
-                font-size: 1.8rem;
-                margin: 10px 0 20px;
-            }
-            
-            .music-control {
-                bottom: 15px;
-                right: 15px;
-                width: 45px;
-                height: 45px;
-            }
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffebee;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    color: #d81b60;
+    text-align: center;
+    overflow-x: hidden;
+}
 
-            .lyrics {
-                font-size: 1rem;
-                padding: 15px;
-            }
-        }
-    </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+.container {
+    width: 90%;
+    max-width: 500px;
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin: 20px 0;
+    animation: slideUp 0.8s ease-out, gentleSway 6s ease-in-out infinite;
+    position: relative;
+    transform-origin: center top;
+}
+
+button {
+    background-color: #d81b60;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 15px 0;
+    transition: all 0.3s;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    animation: subtlePulse 2.5s infinite;
+}
+
+button:hover {
+    background-color: #c2185b;
+    transform: translateY(-2px);
+    animation: heartBeat 1s;
+}
+
+button.return-btn {
+    background-color: #f8bbd0;
+    color: #ad1457;
+    padding: 8px 15px;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.message {
+    display: none;
+    text-align: left;
+    line-height: 1.6;
+    padding: 15px;
+    background-color: #fce4ec;
+    border-radius: 10px;
+    margin: 15px 0;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.message p {
+    margin: 0.5em 0;
+    animation: slideUp 0.5s ease-out both;
+}
+
+.message p:nth-child(1) { animation-delay: 0.2s; }
+.message p:nth-child(2) { animation-delay: 0.4s; }
+.message p:nth-child(3) { animation-delay: 0.6s; }
+.message p:nth-child(4) { animation-delay: 0.8s; }
+.message p:nth-child(5) { animation-delay: 1.0s; }
+.message p:nth-child(6) { animation-delay: 1.2s; }
+.message p:nth-child(7) { animation-delay: 1.4s; }
+.message p:nth-child(8) { animation-delay: 1.6s; }
+.message p:nth-child(9) { animation-delay: 1.8s; }
+.message p:nth-child(10) { animation-delay: 2.0s; }
+.message p:nth-child(11) { animation-delay: 2.2s; }
+.message p:nth-child(12) { animation-delay: 2.4s; }
+
+.gallery {
+    display: none;
+    width: 100%;
+    animation: slideUp 1s ease-out;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.photo-box {
+    height: 100px;
+    background-color: #f8bbd0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ad1457;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    animation: fadeIn 0.5s ease-out both;
+}
+
+.photo-box:hover {
+    transform: scale(1.03);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.photo-box.enlarged {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.1);
+    z-index: 100;
+    width: 90%;
+    height: auto;
+    max-height: 80vh;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    border-radius: 10px;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 99;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    animation: subtlePulse 3s infinite, slideUp 0.8s ease-out, textGlow 4s infinite;
+}
+
+.footer {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    animation: slideUp 0.8s ease-out, float 4s ease-in-out infinite;
+}
+
+#musicControl {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    cursor: pointer;
+    z-index: 10;
+    animation: float 4s ease-in-out infinite, heartBeat 2s infinite;
+}
+
+.heart {
+    position: absolute;
+    pointer-events: none;
+    animation: float 6s ease-in-out infinite;
+    opacity: 0.8;
+    top: -50px;
+    width: 20px;
+    height: 20px;
+}
+
+.heart::before, .heart::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 10px;
+    height: 16px;
+    border-radius: 10px 10px 0 0;
+    background: #ff6b81;
+}
+
+.heart::before {
+    left: 10px;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+.heart::after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+.photo-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.photo-box:hover .photo-caption {
+    opacity: 1;
+}
+
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(0);
+    pointer-events: none;
+    animation: ripple 0.6s linear;
+}
+</style>
 </head>
 <body>
-    <div class="floating-hearts" id="floating-hearts"></div>
-    
-    <div class="music-control" id="music-control">
-        <i class="fas fa-music"></i>
-    </div>
-    
-    <div class="container">
-        <!-- First Screen -->
-        <div id="first-screen" class="screen active">
-            <div class="button-container">
-                <button onclick="showPoem()" id="main-btn">MY ALYSSA ❤️</button>
+<div class="container" id="page1">
+    <h1>HAPPY 1ST MY ALYSSA!</h1>
+    <button onclick="showMessage()">Tap Me😉</button>
+</div>
 
-            </div>
-        </div>
+<div class="container" id="page2" style="display:none;">
+    <div class="message" id="loveMessage">
+        <p>Hello baby, happy 1st monthsary! ❤️</p>
         
-        <!-- Poem Screen -->
-        <div id="poem-screen" class="screen">
-            <div class="back-button" onclick="backToFirst()"></div>
-            <div class="poem">
-                <p>We went on one sweet date, just us,<br>
-                No rush, no games, no need to fuss.<br>
-                But from that night, my heart just knew<br>
-                I didn't want anyone but you.</p>
-                
-                <p>Since then, we're always side by side,<br>
-                Through laughs and talks and every ride.<br>
-                Each day with you feels warm and right<br>
-                You're my forever, day and night.</p>
-            </div>
-            
-            <div class="space"></div>
-            
-            <div class="love-note">
-                I love you my dearest, my love and my baby,<br>
-                I'm so grateful to have you!
-            </div>
-            
-            <button onclick="showGallery()" id="gallery-btn">CLICK THIS BABY!</button>
-        </div>
+        <p>I don't really know how to start this, but maybe I'll begin by saying thank you. Thank you for coming into my life. You're the greatest gift that God has ever given me.</p>
         
-        <!-- Gallery Screen -->
-        <div id="gallery-screen" class="screen">
-            <div class="back-button" onclick="backToPoem()"></div>
-            <h1>i love you ❤️</h1>
-            <div class="image-gallery" id="image-gallery">
-                <div class="image-box">
-                    <img src="assets/picture 1.jpg" alt="Love picture 1">
-                </div>
-                <div class="image-box">
-                    <img src="assets/picture 2.jpg" alt="Love picture 2">
-                </div>
-                <div class="image-box">
-                    <img src="assets/picture 3.jpg" alt="Love picture 3">
-                </div>
-            </div>
-            
-            <!-- Added lyrics section -->
-            <div class="lyrics">
-                Di sasayangin ang oras at pag-ibig mo<br>
-                Mas pipiliin kong<br>
-                Ibigay lahat pati itong aking mundo<br>
-                Halika't sumayaw sa ilalim ng bituin<br>
-                Habang ako'y nakatingin sa iyo<br>
-                Wala na 'kong ibang mahihiling<br>
-                Saksi ang langit sa 'tin
-            </div>
+        <p>Thank you for always making me happy, for making me feel like the luckiest person on earth (because I truly am). Thank you for making me feel seen, understood, and deeply loved. Thank you for showing me what real love feels like, for making me feel safe, healthy, and whole.</p>
+        
+        <p>Thank you for your endless support, your patience, your love, and your presence. You've brought so much peace and joy into my life, and I'll always be grateful for you.</p>
+        
+        <p>You know how much I love you. If I were to be asked, I'd say I love you more than anything in this world. I'll choose you over and over again in every version of life, in every chapter, no matter what. Always you.</p>
+        
+        <p>It's been one fun month, and I still fall for you every single day. I never get tired of loving you. I long for your presence, your voice, your hugs, your smile. I still remember how we started, how our eyes met, how genuine our smiles were. It felt like the universe paused to make that moment perfect.</p>
+        
+        <p>I hope I get to be your last, your forever. I hope our future will be full of exciting adventures, growth, and a healthy, lasting love. I know I can be stubborn at times, and for that, I'm really sorry. I'm sorry for anything I've done that made you feel upset, hurt, or uncomfortable.</p>
+        
+        <p>If ever I did something wrong or if you disagreed with me, please know that I'm willing to listen, learn, and grow. I'll always do my best to acknowledge my mistakes and become better for us.</p>
+        
+        <p>You are everything I prayed for and so much more. I promise to keep choosing you, loving you, and growing with you every single day.</p>
+        
+        <p>And again, happy 1st monthsary, my love. Here's to forever with you. ❤️</p>
+    </div>
+    <button onclick="showGallery()">See Our Memories</button>
+    <button class="return-btn" onclick="returnToPage('page1')">Back</button>
+</div>
+
+<div class="container" id="page3" style="display:none;">
+    <h1>My memory album with you ❤️</h1>
+    <div class="gallery" id="photoGallery">
+        <div class="photo-grid">
+            <!-- Photos will be added dynamically by JavaScript -->
+        </div>
+        <div class="footer">
+            I love you my dearest Alyssa, my baby, my love!❤️
         </div>
     </div>
+    <button class="return-btn" onclick="returnToPage('page2')">Back</button>
+</div>
 
-    <audio id="bg-music" loop>
-        <source src="assets/ALI.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
+<div class="overlay" id="overlay" onclick="closeEnlarged()"></div>
 
-    <script>
-        // Navigation functions
-        function showPoem() {
-            document.getElementById('first-screen').classList.remove('active');
-            setTimeout(() => {
-                document.getElementById('poem-screen').classList.add('active');
-            }, 300);
-        }
+<div id="musicControl" onclick="toggleMusic()">🎵</div>
+
+<audio id="bgMusic" loop>
+    <source src="assets/ssstik.io_1753031504866.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<script>
+// Photo data with captions
+const photos = [
+    { src: "assets/1.jpg", caption: "Our first photo together" },
+    { src: "assets/2.jpg", caption: "Smiling together" },
+    { src: "assets/3.jpg", caption: "Special moment" },
+    { src: "assets/4.jpg", caption: "Happy times" },
+    { src: "assets/5.jpg", caption: "Loving each other" },
+    { src: "assets/6.jpg", caption: "Beautiful memory" },
+    { src: "assets/7.jpg", caption: "Together forever" },
+    { src: "assets/8.jpg", caption: "Our adventure" },
+    { src: "assets/9.jpg", caption: "Sweet moments" },
+    { src: "assets/11.jpg", caption: "Perfect day" },
+    { src: "assets/12.jpg", caption: "Unforgettable" },
+    { src: "assets/13.jpg", caption: "My favorite" },
+    { src: "assets/14.jpg", caption: "You and me" },
+    { src: "assets/15.jpg", caption: "Pure happiness" },
+    { src: "assets/16.jpg", caption: "Best month ever" },
+    { src: "assets/18.jpg", caption: "Growing together" },
+    { src: "assets/19.jpg", caption: "My heart" },
+    { src: "assets/20.jpg", caption: "Endless love" }
+];
+
+// Create floating hearts (simplified and fewer)
+function createHearts() {
+    const colors = ['#ff6b81', '#ff8e9e'];
+    
+    for (let i = 0; i < 10; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+
+        // Random properties
+        const size = Math.random() * 10 + 15;
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        const left = Math.random() * 100;
+        const duration = Math.random() * 4 + 4;
+        const delay = Math.random() * 2;
+
+        // Apply styles
+        heart.style.left = `${left}%`;
+        heart.style.width = `${size}px`;
+        heart.style.height = `${size}px`;
+        heart.style.animationDuration = `${duration}s`;
+        heart.style.animationDelay = `${delay}s`;
+        heart.style.setProperty('--heart-color', color);
+
+        document.body.appendChild(heart);
         
-        function showGallery() {
-            document.getElementById('poem-screen').classList.remove('active');
-            setTimeout(() => {
-                document.getElementById('gallery-screen').classList.add('active');
-                document.getElementById('image-gallery').style.display = 'flex';
-                setTimeout(() => {
-                    document.getElementById('image-gallery').style.opacity = '1';
-                    document.getElementById('image-gallery').style.transform = 'translateY(0)';
-                }, 50);
-            }, 300);
-            
-            // Trigger heartbeat animation on gallery button click
-            const galleryBtn = document.getElementById('gallery-btn');
-            galleryBtn.style.animation = 'heartbeat 0.8s';
-            setTimeout(() => {
-                galleryBtn.style.animation = '';
-            }, 800);
-        }
+        // Remove hearts after animation completes to prevent memory issues
+        setTimeout(() => {
+            heart.remove();
+        }, duration * 1000);
+    }
+    
+    // Keep creating hearts periodically
+    setTimeout(createHearts, 2000);
+}
+
+// Create ripple effect on click
+function createRipple(event) {
+    const ripple = document.createElement('span');
+    ripple.className = 'ripple';
+    document.body.appendChild(ripple);
+    
+    ripple.style.left = `${event.clientX}px`;
+    ripple.style.top = `${event.clientY}px`;
+    
+    setTimeout(() => {
+        ripple.remove();
+    }, 600);
+}
+
+// Initialize photo gallery
+function initGallery() {
+    const photoGrid = document.querySelector('.photo-grid');
+    photoGrid.innerHTML = '';
+    
+    photos.forEach((photo, index) => {
+        const photoBox = document.createElement('div');
+        photoBox.className = 'photo-box';
+        photoBox.style.backgroundImage = `url(${photo.src})`;
+        photoBox.onclick = () => enlargePhoto(photoBox, photo.caption);
+        photoBox.style.animationDelay = `${index * 0.1}s`;
         
-        function backToFirst() {
-            document.getElementById('poem-screen').classList.remove('active');
-            setTimeout(() => {
-                document.getElementById('first-screen').classList.add('active');
-            }, 300);
-        }
+        const caption = document.createElement('div');
+        caption.className = 'photo-caption';
+        caption.textContent = photo.caption;
         
-        function backToPoem() {
-            document.getElementById('gallery-screen').classList.remove('active');
-            setTimeout(() => {
-                document.getElementById('poem-screen').classList.add('active');
-            }, 300);
-        }
-        
-        // Floating hearts animation
-        function createHearts() {
-            const heartsContainer = document.getElementById('floating-hearts');
-            const heartCount = 15;
-            
-            for (let i = 0; i < heartCount; i++) {
-                const heart = document.createElement('div');
-                heart.innerHTML = '❤️';
-                heart.classList.add('heart');
-                
-                // Random position
-                const leftPos = Math.random() * 100;
-                const topPos = Math.random() * 100;
-                
-                // Random animation duration (10-20s)
-                const duration = 10 + Math.random() * 10;
-                
-                // Random delay (0-5s)
-                const delay = Math.random() * 5;
-                
-                // Random size
-                const size = 15 + Math.random() * 15;
-                
-                heart.style.left = `${leftPos}%`;
-                heart.style.top = `${topPos}%`;
-                heart.style.animation = `float ${duration}s linear ${delay}s infinite`;
-                heart.style.fontSize = `${size}px`;
-                heart.style.opacity = '0.7';
-                
-                heartsContainer.appendChild(heart);
-            }
-        }
-        
-        // Music control
-        const music = document.getElementById('bg-music');
-        const musicControl = document.getElementById('music-control');
-        let isMusicPlaying = false;
-        
-        musicControl.addEventListener('click', function() {
-            if (isMusicPlaying) {
-                music.pause();
-                musicControl.innerHTML = '<i class="fas fa-music"></i>';
-                musicControl.style.animation = '';
-            } else {
-                music.play();
-                musicControl.innerHTML = '<i class="fas fa-pause"></i>';
-                musicControl.style.animation = 'pulse 2s infinite';
-            }
-            isMusicPlaying = !isMusicPlaying;
+        photoBox.appendChild(caption);
+        photoGrid.appendChild(photoBox);
+    });
+}
+
+// Background music control
+const music = document.getElementById('bgMusic');
+let musicPlaying = false;
+
+function toggleMusic() {
+    if (musicPlaying) {
+        music.pause();
+        document.getElementById('musicControl').textContent = '🎵';
+    } else {
+        music.play();
+        document.getElementById('musicControl').textContent = '🔊';
+    }
+    musicPlaying = !musicPlaying;
+}
+
+// Page navigation
+function showMessage() {
+    document.getElementById('page1').style.display = 'none';
+    document.getElementById('page2').style.display = 'block';
+    document.getElementById('loveMessage').style.display = 'block';
+    createHearts();
+}
+
+function showGallery() {
+    document.getElementById('page2').style.display = 'none';
+    document.getElementById('page3').style.display = 'block';
+    document.getElementById('photoGallery').style.display = 'block';
+    initGallery();
+}
+
+function returnToPage(pageId) {
+    document.getElementById('page1').style.display = 'none';
+    document.getElementById('page2').style.display = 'none';
+    document.getElementById('page3').style.display = 'none';
+    document.getElementById(pageId).style.display = 'block';
+    
+    if (pageId === 'page2') {
+        document.getElementById('loveMessage').style.display = 'block';
+    } else if (pageId === 'page3') {
+        document.getElementById('photoGallery').style.display = 'block';
+    }
+}
+
+// Photo enlargement
+function enlargePhoto(element, caption) {
+    const overlay = document.getElementById('overlay');
+    const clone = element.cloneNode(true);
+    
+    clone.style.width = '100%';
+    clone.style.height = '100%';
+    clone.style.backgroundImage = element.style.backgroundImage;
+    clone.style.position = 'relative';
+    
+    const captionElement = document.createElement('div');
+    captionElement.className = 'photo-caption';
+    captionElement.textContent = caption;
+    captionElement.style.opacity = '1';
+    captionElement.style.position = 'absolute';
+    captionElement.style.bottom = '10px';
+    captionElement.style.left = '10px';
+    captionElement.style.right = '10px';
+    captionElement.style.textAlign = 'center';
+    captionElement.style.fontSize = '16px';
+    
+    clone.innerHTML = '';
+    clone.appendChild(captionElement);
+    
+    overlay.innerHTML = '';
+    overlay.appendChild(clone);
+    overlay.style.display = 'block';
+    
+    setTimeout(() => {
+        clone.style.transform = 'translate(-50%, -50%) scale(1)';
+    }, 10);
+}
+
+function closeEnlarged() {
+    const overlay = document.getElementById('overlay');
+    overlay.style.display = 'none';
+}
+
+// Auto-play music (works only after user interaction)
+document.addEventListener('click', function() {
+    if (!musicPlaying) {
+        music.play().then(() => {
+            musicPlaying = true;
+            document.getElementById('musicControl').textContent = '🔊';
+        }).catch(error => {
+            console.log('Auto-play prevented:', error);
         });
+    }
+    createHearts();
+}, { once: true });
+
+// Add ripple effect to all buttons
+document.querySelectorAll('button').forEach(button => {
+    button.addEventListener('click', function(e) {
+        const rect = this.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
         
-        // Initialize animations
-        window.onload = function() {
-            createHearts();
-            
-            const mainBtn = document.getElementById('main-btn');
-            const secondBtn = document.getElementById('second-btn');
-            
-            if (mainBtn && secondBtn) {
-                // Pulse animation for both buttons
-                setInterval(() => {
-                    mainBtn.style.transform = 'scale(1.03)';
-                    secondBtn.style.transform = 'scale(1.03)';
-                    setTimeout(() => {
-                        mainBtn.style.transform = 'scale(1)';
-                        secondBtn.style.transform = 'scale(1)';
-                    }, 800);
-                }, 1600);
-                
-                // Add floating effect to buttons
-                mainBtn.style.animation = 'float 3s ease-in-out infinite';
-                secondBtn.style.animation = 'float 3s ease-in-out infinite 0.5s';
-            }
-            
-            // Add hover effect to gallery images
-            const imageBoxes = document.querySelectorAll('.image-box');
-            imageBoxes.forEach(box => {
-                box.addEventListener('mouseenter', function() {
-                    this.style.transform = 'scale(1.05)';
-                });
-                box.addEventListener('mouseleave', function() {
-                    this.style.transform = 'scale(1)';
-                });
-            });
-            
-            // Prevent zooming on double-tap
-            document.addEventListener('dblclick', function(e) {
-                e.preventDefault();
-            }, { passive: false });
-        };
-    </script>
+        const ripple = document.createElement('span');
+        ripple.className = 'ripple';
+        ripple.style.left = `${x}px`;
+        ripple.style.top = `${y}px`;
+        this.appendChild(ripple);
+        
+        setTimeout(() => {
+            ripple.remove();
+        }, 600);
+    });
+});
+</script>
 </body>
 </html>
